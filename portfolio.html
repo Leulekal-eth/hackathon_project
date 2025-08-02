@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leulekal's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #29768e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--success);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            border-color: var(--accent);
+        }
+
+        .decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 3px dashed var(--success);
+            border-radius: 50%;
+            top: -15px;
+            left: -15px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, var(--success), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShine 3s ease infinite;
+        }
+
+        @keyframes textShine {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #e9ecef;
+        }
+
+        /* Main content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section {
+            background: rgba(33, 37, 41, 0.85);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+        }
+
+h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            color: var(--success);
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Interests section */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .interest-item {
+            width: 200px;
+            text-align: center;
+            padding: 25px 15px;
+            background: rgba(67, 97, 238, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-item:hover {
+            transform: translateY(-8px);
+            background: rgba(67, 97, 238, 0.2);
+            border-color: var(--success);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .interest-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .interest-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .interest-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--success);
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover .interest-icon {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .interest-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--success);
+        }
+
+        .interest-desc {
+            font-size: 0.95rem;
+            color: #e9ecef;
+        }
+
+        /* Education section */
+        .education-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .edu-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 25px;
+            background: rgba(63, 55, 201, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .edu-title {
+            font-size: 1.4rem;
+            color: var(--success);
+            margin-bottom: 15px;
+        }
+
+        .edu-details {
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.4);
+            margin-top: 40px;
+            border-top: 1px solid rgba(76, 201, 240, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(67, 97, 238, 0.2);
+            color: var(--success);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-8px);
+        }
+
+        .copyright {
+            font-size: 1.1rem;
+            color: #adb5bd;
+        }
+
+
+/* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .interest-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .decoration {
+                width: 170px;
+                height: 170px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-container">
+                <div class="decoration"></div>
+                <img src="photo.jpg" alt="Leulekal Amare" class="profile-image">
+            </div>
+            <h1>Leulekal Amare</h1>
+            <p class="tagline">Computer Science Learner | Power Learn Project | Football Enthusiast</p>
+        </header>
+
+        <main>
+            <section class="section" id="about">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <p>Hello! I'm <span class="highlight">Leulekal Amare</span>, a passionate beginner in the world of programming and technology.</p>
+                    <p>I recently graduated from high school and I'm currently diving deep into the fascinating world of <span class="highlight">Computer Science</span>. My journey is being accelerated through the incredible <span class="highlight">Power Learn Project</span>, which has given me the opportunity to evolve my understanding of programming and develop practical skills.</p>
+                    <p>When I'm not coding, you'll find me enjoying some delicious <span class="highlight">chocolate</span>, cheering for my favorite <span class="highlight">football</span> team, or admiring beautiful <span class="highlight">cars</span>. I believe in continuous learning and growth, and I'm excited to see where this programming journey takes me!</p>
+                    <p><span class="highlight">KEEP GOD IN YOUR LIFE!! JESUS CHRIST IS THE SAVIOUR OF ALL!!!</span></p>
+                </div>
+            </section>
+
+            <section class="section" id="interests">
+                <h2>My Passions</h2>
+                <div class="interests">
+                    <div class="interest-item">
+                        <div class="interest-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="interest-title">Programming</h3>
+                        <p class="interest-desc">Exploring the world of code through Power Learn Project. Currently learning Python, Database, Web Dev ...</p>
+                    </div>
+                    
+                    <div class="interest-item">
+                        <div class="interest-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3 class="interest-title">Football</h3>
+                        <p class="interest-desc">A true Manchester United fan here, theatre of dreams, where dreams truly come true!! REDS!!.</p>
+                    </div>
+                    
+                    <div class="interest-item">
+                        <div class="interest-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="interest-title">Cars</h3>
+
+
+<p class="interest-desc">Curious about cars modes, customs, and last but not definetly least engines.</p>
+                    </div>
+                    
+                    <div class="interest-item">
+                        <div class="interest-icon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <h3 class="interest-title">Chocolate</h3>
+                        <p class="interest-desc">A true chocolate lover. Dark chocolate is my favorite partner!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="education">
+                <h2>Education Journey</h2>
+                <div class="education-content">
+                    <div class="edu-item">
+                        <h3 class="edu-title">High School Graduate</h3>
+                        <p class="edu-details">Successfully completed my high school with a whooping gpa of 3.7 additionally participated in science fair competetions regionally</p>
+                    </div>
+                    
+                    <div class="edu-item">
+                        <h3 class="edu-title">Computer Science</h3>
+                        <p class="edu-details">Currently learning programming fundamentals, about to jump in the real ones: databases, software enginerring ...</p>
+                    </div>
+                    
+                    <div class="edu-item">
+                        <h3 class="edu-title">Power Learn Project</h3>
+                        <p class="edu-details">Gaining real-world knowledge through online teachings I'm forever thankful for this opportunity.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://github.com/Leulekal-eth/PLP_SEE" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/leulekal-amare" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <p class="Signature"> 2025 Leulekal Amare | Power Learn Project</p>
+        </footer>
+    </div>
+</body>
+</html>
