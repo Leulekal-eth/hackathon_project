@@ -1,7 +1,6 @@
 # My Hackathon Project
 # **Leulekal Amare's Portfolio** 🚀
 
-![Portfolio Preview](photo.jpg) *Replace with actual screenshot if available*
 
 ## **🌟 About This Project**
 This is my **personal portfolio website** showcasing my journey as a computer science learner, my passions, and my educational background. Built with pure HTML and CSS, it features:
@@ -29,13 +28,6 @@ This is my **personal portfolio website** showcasing my journey as a computer sc
    ```bash
    git clone https://github.com/Leulekal-eth/hackathon_project.git
    ```
-2. **Open `index.html`** in your browser
-
-## **📸 Screenshots**
-*(Add actual screenshots of your portfolio here if possible)*
-
-## **🔗 Live Demo**
-👉 [View Live Portfolio](#) *(Add your GitHub Pages link here when deployed)*
 
 ## **📚 What I Learned**
 Through building this portfolio, I:
@@ -60,4 +52,3 @@ Through building this portfolio, I:
 - Customize the content to reflect your personal journey
 - Add more sections as you grow (Projects, Skills, etc.)
 
-Would you like me to add anything specific about your learning journey or Power Learn Project experience? 😊
